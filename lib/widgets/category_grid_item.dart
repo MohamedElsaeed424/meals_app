@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 class CategorieItemData extends StatelessWidget {
   final Category category;
+  final void Function() onSelectCategory;
 
-  const CategorieItemData({super.key, required this.category});
+  const CategorieItemData(
+      {super.key, required this.category, required this.onSelectCategory});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -24,7 +26,7 @@ class CategorieItemData extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge!
-                .copyWith(color: Theme.of(context).colorScheme.background)),
+                .copyWith(color: Theme.of(context).colorScheme.onBackground)),
       ),
     );
     //-------------------------
