@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:meals_app/categories.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -12,10 +11,9 @@ final theme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(),
 );
 
-void main(){
+void main() {
   runApp(const App());
 }
-
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -23,10 +21,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme ,
-      home: ,
-    ) ;
+      theme: theme,
+      home: const CategoriesScreen(),
+    );
   }
-
-
 }
