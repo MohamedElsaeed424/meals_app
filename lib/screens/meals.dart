@@ -4,10 +4,9 @@ import 'package:meals_app/screens/meal_details.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  final String titleCategory;
+  final String? titleCategory;
   final List<Meal> meals;
-  const MealsScreen(
-      {super.key, required this.titleCategory, required this.meals});
+  const MealsScreen({super.key, this.titleCategory, required this.meals});
   void _selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => MealDetailsScreen(
@@ -48,9 +47,14 @@ class MealsScreen extends StatelessWidget {
                 },
               ));
     }
+    // this if because if we  want to show only favourite maels
+    if (titleCategory == null) {
+      return content;
+    }
+    // else show all meals
     return Scaffold(
       appBar: AppBar(
-        title: Text(titleCategory),
+        title: Text(titleCategory!),
       ),
       body: content,
     );
