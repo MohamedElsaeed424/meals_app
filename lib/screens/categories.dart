@@ -8,10 +8,14 @@ import '../models/meal.dart';
 
 class CategoriesScreen extends StatelessWidget {
   final void Function(Meal meal) onToggelMealFavoriteStatus;
-  const CategoriesScreen({super.key, required this.onToggelMealFavoriteStatus});
+  final List<Meal> availableMeals;
+  const CategoriesScreen(
+      {super.key,
+      required this.onToggelMealFavoriteStatus,
+      required this.availableMeals});
 
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeales = dummyMeals
+    final filteredMeales = availableMeals
         .where((mealItem) => mealItem.categories.contains(category.id))
         .toList();
     Navigator.of(context).push(MaterialPageRoute(
